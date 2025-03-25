@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Compression Results</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <!-- Gunakan variabel back_url; jika tidak ada, default ke halaman upload -->
+    <a href="{{ back_url if back_url else url_for('upload_file') }}" class="back-button">Back</a>
+    <h1>Compression Results</h1>
+    <!-- Tampilkan File Content -->
+    <h2>File Content</h2>
+    <table>
+      <tr>
+        <th>File Content Display</th>
+      </tr>
+      <tr>
+        <td class="file-content-display">
+          <pre>{{ file_content }}</pre>
+        </td>
+      </tr>
+    </table>
+    <!-- Tabel Compression Metrics -->
+    <h2>Compression Metrics</h2>
+    <table>
+      <tr>
+        <th>File Name</th>
+        <th>Original Size</th>
+        <th>After Compression (Sequitur)</th>
+        <th>After Compression (Elias Gamma)</th>
+        <th>Compression Ratio</th>
+        <th>Ratio Compression</th>
+        <th>Redundancy</th>
+      </tr>
+      <tr>
+        <td>{{ filename }}</td>
+        <td>{{ original_size }} bytes</td>
+        <td>{{ compressed_sequitur_size }} bytes</td>
+        <td>{{ compressed_gamma_size }} bytes</td>
+        <td>{{ compression_ratio }}</td>
+        <td>{{ ratio_compression }}</td>
+        <td>{{ redundancy }}%</td>
+      </tr>
+    </table>
+    <!-- Tabel Sequitur Compression (Compressed Text) -->
+    <h3>Sequitur Compression (Compressed Text)</h3>
+    <div class="scrollable-table">
+      <table>
+        <tr>
+          <th>Compressed Text</th>
+        </tr>
+        <tr>
+          <td>
+            <pre>{{ compressed_text_sequitur }}</pre>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <!-- Tabel Sequitur Compression (Binary Code) -->
+    <h3>Sequitur Compression (Binary Code)</h3>
+    <div class="scrollable-table">
+      <table>
+        <tr>
+          <th>Binary Code</th>
+        </tr>
+        <tr>
+          <td>
+            <pre>{{ binary_code_sequitur }}</pre>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <!-- Tabel Elias Gamma Compression (Binary Code) -->
+    <h3>Elias Gamma Compression (Binary Code)</h3>
+    <div class="scrollable-table">
+      <table>
+        <tr>
+          <th>Binary Code</th>
+        </tr>
+        <tr>
+          <td>
+            <pre>{{ binary_code_elias }}</pre>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <!-- Tombol Download -->
+    <h2>Download Files</h2>
+    <div class="download-buttons">
+      {% if compressed_file_sequitur_path %}
+      <div class="download-link">
+        <a href="{{ url_for('download_file', file_type='sequitur', file_name=compressed_file_sequitur_path.split('/')[-1]) }}" class="btn-download">
+          Download Sequitur Compressed File
+        </a>
+      </div>
+      {% endif %}
+      {% if compressed_file_elias_path %}
+      <div class="download-link">
+        <a href="{{ url_for('download_file', file_type='elias', file_name=compressed_file_elias_path.split('/')[-1]) }}" class="btn-download">
+          Download Elias Gamma Compressed File
+        </a>
+      </div>
+      {% endif %}
+      {% if decompressed_file_path %}
+      <div class="download-link">
+        <a href="{{ url_for('download_file', file_type='decompressed', file_name=decompressed_file_path.split('/')[-1]) }}" class="btn-download">
+          Download Decompressed File
+        </a>
+      </div>
+      {% endif %}
+      {% if zip_file_path %}
+      <div class="download-link">
+        <a href="{{ url_for('download_file', file_type='zip', file_name=zip_file_path.split('/')[-1]) }}" class="btn-download">
+          Download ZIP Compressed File
+        </a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</body>
+</html>

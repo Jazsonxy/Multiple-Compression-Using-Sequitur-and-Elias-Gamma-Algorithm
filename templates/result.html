@@ -8,10 +8,8 @@
 </head>
 <body>
   <div class="container">
-    <!-- Gunakan variabel back_url; jika tidak ada, default ke halaman upload -->
     <a href="{{ back_url if back_url else url_for('upload_file') }}" class="back-button">Back</a>
     <h1>Compression Results</h1>
-    <!-- Tampilkan File Content -->
     <h2>File Content</h2>
     <table>
       <tr>
@@ -23,7 +21,6 @@
         </td>
       </tr>
     </table>
-    <!-- Tabel Compression Metrics -->
     <h2>Compression Metrics</h2>
     <table>
       <tr>
@@ -45,7 +42,6 @@
         <td>{{ redundancy }}%</td>
       </tr>
     </table>
-    <!-- Tabel Sequitur Compression (Compressed Text) -->
     <h3>Sequitur Compression (Compressed Text)</h3>
     <div class="scrollable-table">
       <table>
@@ -59,7 +55,6 @@
         </tr>
       </table>
     </div>
-    <!-- Tabel Sequitur Compression (Binary Code) -->
     <h3>Sequitur Compression (Binary Code)</h3>
     <div class="scrollable-table">
       <table>
@@ -73,7 +68,6 @@
         </tr>
       </table>
     </div>
-    <!-- Tabel Elias Gamma Compression (Binary Code) -->
     <h3>Elias Gamma Compression (Binary Code)</h3>
     <div class="scrollable-table">
       <table>
@@ -87,7 +81,6 @@
         </tr>
       </table>
     </div>
-    <!-- Tombol Download -->
     <h2>Download Files</h2>
     <div class="download-buttons">
       {% if compressed_file_sequitur_path %}

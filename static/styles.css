@@ -68,6 +68,7 @@ th {
     color: #fff;
 }
 
+/* File Content Display: Teks dalam pre harus rata kiri */
 .file-content-display pre {
     text-align: left;
     background-color: #e2dede;
@@ -81,9 +82,10 @@ th {
     overflow-y: auto;
 }
 
+/* Scroll untuk tabel Sequitur dan Elias Gamma */
 .scrollable-table {
-    max-height: 400px;
-    overflow-y: auto;
+    max-height: 400px;  /* Batasi tinggi */
+    overflow-y: auto;   /* Aktifkan scroll vertikal */
 }
 
 td pre {
@@ -111,3 +113,8 @@ td pre {
     text-align: center;
     min-width: 200px;
 }
+
+h2 {
+    margin-top: 2rem;
+  }
+

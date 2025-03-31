@@ -6,7 +6,6 @@
   <title>Extracted Files</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
   <style>
-    /* Header extracted files */
     .header {
       text-align: center;
       margin-bottom: 1.5rem;
@@ -20,7 +19,6 @@
       font-size: 1rem;
       color: #444;
     }
-    /* Perbaikan tampilan tabel */
     table {
       width: 100%;
       border-collapse: collapse;
@@ -30,12 +28,10 @@
       padding: 12px 15px;
       border-bottom: 1px solid #ddd;
     }
-    /* Rata tengah untuk header File Name dan Action saja */
     table thead th.file-header,
     table thead th.action-header {
       text-align: center;
     }
-    /* Kolom Action lebih sempit */
     table td.action-cell {
       width: 100px;
       text-align: left;
@@ -50,7 +46,6 @@
     table tr:hover {
       background-color: #eef2f3;
     }
-    /* Tombol Detail */
     .btn-detail {
       display: inline-block;
       padding: 8px 16px;
@@ -66,12 +61,10 @@
     .btn-detail:hover {
       background-color: #3a9d94;
     }
-    /* Container scrollable jika file lebih dari 5 */
     .scrollable-table-container {
       max-height: 300px;
       overflow-y: auto;
     }
-    /* Tombol Download */
     .download-buttons {
       margin-top: 30px;
       display: flex;
@@ -90,7 +83,6 @@
     .download-buttons a:hover {
       background-color: #3a9d94;
     }
-    /* Tambahan jarak antara tabel */
     h2 {
       margin-top: 3rem;
     }
@@ -103,7 +95,6 @@
       <h1>Extracted Files</h1>
       <p>Below are the files extracted from your archive.</p>
     </div>
-    <!-- Tabel daftar file hasil ekstraksi dengan scroll -->
     <div class="scrollable-table-container">
       <table>
         <thead>
@@ -126,7 +117,6 @@
         </tbody>
       </table>
     </div>
-    <!-- Tabel Metrik Kompresi untuk arsip -->
     <h2>Compression Metrics</h2>
     <table>
       <thead>
@@ -150,7 +140,6 @@
         </tr>
       </tbody>
     </table>
-    <!-- Tombol Download untuk kedua arsip -->
     <div class="download-buttons">
       <a href="{{ url_for('download_file', file_type='zip', file_name=zip_file_path_compressed.split('/')[-1]) }}" class="btn-download">
         Compressed

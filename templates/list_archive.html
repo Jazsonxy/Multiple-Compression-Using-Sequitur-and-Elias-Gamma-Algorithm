@@ -90,6 +90,10 @@
     .download-buttons a:hover {
       background-color: #3a9d94;
     }
+    /* Tambahan jarak antara tabel */
+    h2 {
+      margin-top: 3rem;
+    }
   </style>
 </head>
 <body>
@@ -149,10 +153,10 @@
     <!-- Tombol Download untuk kedua arsip -->
     <div class="download-buttons">
       <a href="{{ url_for('download_file', file_type='zip', file_name=zip_file_path_compressed.split('/')[-1]) }}" class="btn-download">
-        Download Final Compressed Archive
+        Compressed
       </a>
       <a href="{{ url_for('download_file', file_type='zip', file_name=zip_file_path_decompressed.split('/')[-1]) }}" class="btn-download">
-        Download Decompressed Archive
+        Decompressed
       </a>
     </div>
   </div>
